@@ -1,0 +1,33 @@
+.full-width{
+    position: relative;
+    float: left;
+    width: 100%;
+}
+.content-width-1-2{
+    position: relative;
+    float: left;
+    width: 50%;
+}
+
+.header{
+    background-color: #333333;
+    color:#ffffff;
+    list-style: none;
+}
+.header a{
+    color: #ffffff;
+}
+.content-wrapper{
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.main-nav li{
+    position: relative;
+    float: left;
+    list-style: none;
+    width: auto;
+}

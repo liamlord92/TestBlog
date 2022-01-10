@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--Basic Meta Information-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=5.0">
+        <title>{if site_name}{site_name}{if:else}Liams Test Blog{/if}</title>
+        <link rel="icon" href="/favicon.ico">
+        
+        <!--CSS-->
+        {embed="assets/css-main"}
+        <link href="/assets/css-main.css" title="common-styles" rel="stylesheet">
+
+    </head>
+    <body>
+
+    <?php 
+        session_start();
+    ?>
+
+    <div style="overflow:hidden;">
+        <header class="full-width header">
+            <div class="content-wrapper">
+                <section class="content-width-1-2">
+                    <h1><a href="/"><b>{if site_name}{site_name}{if:else}Liams Test Blog{/if}</b></a></h1>
+                </section>
+                <section class="content-width-1-2">
+                    <ul class="main-nav">
+                        <li><a href="/">About</a></li>
+                        <li><a href="/">Contact</a></li>
+                    </ul>
+                </section>
+            </div>
+		</header>
+
+		{layout:breadcrumbs}
+
+		<div class="full-width content">
+            <div class="content-wrapper">
+                {layout:contents}
+
+                {exp:channel:entries channel='{ch}' disable='{ch_disable}' limit='6'}
+                    <div class="entry">
+                        <h2><a href="{path='{p_url}/{p_url_entry}/{url_title}'}">{title}</a></h2>
+                        <p><b>on:</b> {entry_date format='%n/%j/%Y'}, <b>by:</b> <a href="{path='member/{author_id}'}">{author}</a></p>
+                    </div>
+                    {if no_results}
+                        <div class="no-results">
+                            <p>None Found</p>
+                        </div>
+                    {/if}
+                {/exp:channel:entries}
+            </div>
+		</div>
+
+		<footer class="full-width">
+			<section class="content-wrapper footer-content">
+				<ul class="full-width footer-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Contact</a></li>
+                </ul>
+			</section>
+		</footer>
+        
+		{layout:scripts}
+    </body>
+</html>
