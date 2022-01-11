@@ -4,7 +4,7 @@
         <!--Basic Meta Information-->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=5.0">
-        <title>{if site_name}{site_name}{if:else}Liams Test Blog{/if}</title>
+        <title>{if layout:title}{layout:title}{if:elseif site_name}{site_name}{if:else}Liams Test Blog{/if}</title>
         <link rel="icon" href="/favicon.ico">
         
         <!--CSS-->
@@ -26,12 +26,19 @@
                 </section>
                 <section class="content-width-1-2">
                     <ul class="main-nav">
+                        <li><a href="/index.php/blog/">Blog</a></li>
                         <li><a href="/index.php/about/">About</a></li>
                         <li><a href="/">Contact</a></li>
                     </ul>
                 </section>
             </div>
 		</header>
+
+        <div id="hero-container" class="full-width" {if hero_image} style="background: url( {hero_image} ) center center / cover no-repeat" {/if}>
+            <div id="hero-wrapper" class="content-wrapper">
+                
+            </div>
+        </div>
 
 		{layout:breadcrumbs}
 
