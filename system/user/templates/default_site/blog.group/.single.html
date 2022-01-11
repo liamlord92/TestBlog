@@ -1,0 +1,14 @@
+{layout="layouts/_page-wrapper"}
+
+{exp:channel:entries channel='Blog' limit='1' }
+    {if no_results}
+        {redirect="404"} 
+    {/if}
+    <div class="full-width content">
+        <div class="content-wrapper">
+            <section class="blog-content-container">
+                {blog_body_copy}
+            </section>
+        </div>
+    </div>
+{/exp:channel:entries}

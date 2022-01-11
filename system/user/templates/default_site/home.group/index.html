@@ -1,0 +1,18 @@
+{layout="layouts/_page-wrapper"}
+{layout:set name="title" value="Liam's Blog"}
+
+<div class="full-width content">
+    <div class="content-wrapper">
+        {exp:channel:entries channel='Blog' limit='6'}
+            <div class="entry">
+                <h2><a href="/index.php/blog/{url_title}">{title}</a></h2>
+                <p><b>on:</b> {entry_date format='%n/%j/%Y'}, <b>by:</b> {author}</p>
+            </div>
+            {if no_results}
+                <div class="no-results">
+                    <p>None Found</p>
+                </div>
+            {/if}
+        {/exp:channel:entries}
+    </div>
+</div>
