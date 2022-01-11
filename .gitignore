@@ -1,2 +1,2 @@
 .env
-./public_html/system/user/config
+/public_html/system/user/config/config.php
