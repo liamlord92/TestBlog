@@ -1,0 +1,4 @@
+FROM aceville/httpd:2.4
+
+COPY ./ /app
+RUN mv /app/public_html/.htaccess.aws /app/public_html/.htaccess

@@ -1,19 +1,38 @@
 version: "3"
-services:
-  site: 
-    build:
-      dockerfile: ./php-dockerfile
-      context: .
-    ports:
-      - 8080:80
-    volumes:
-      - ./public_html:/var/www/html
-      - ./system:/var/www/system
-  database:
-    image: mysql:8
-    ports:
-      - 5050:3306
-    environment:
-      MYSQL_DATABASE: blog_db_name
-      MYSQL_ROOT_PASSWORD: blog_db_password
-      MYSQL_HOST: 0.0.0.0
+services: 
+    apache:
+        build:
+            dockerfile: ./infra/apache/apache-dockerfile
+            context: .
+        ports:
+            - ${HOST_PORT:-8080}:443
+        volumes:
+            - ./:/app
+            - ./public_html/.htaccess.aws:/app/public_html/.htaccess
+        environment:
+            - APP_PATH=site
+
+    site:
+        build: 
+            dockerfile: ./infra/app/php-dockerfile
+            context: .
+        volumes:
+            - ./:/app
+            - ./system/user/config/config.docker.php:/app/system/user/config/config.php
+            - ./.env:/app/.env
+            - vendor:/app/vendor
+        env_file: .env
+        environment: 
+            - PHP_OPCACHE_ENABLE=0      
+    database:
+        image: mysql:8
+        ports:
+            - 5050:3306
+        volumes:
+            - ./infra/database:/docker-entrypoint-initdb.d
+        environment: 
+            MYSQL_DATABASE: blog_db_name
+            MYSQL_ROOT_PASSWORD: blog_db_password
+            MYSQL_HOST: 0.0.0.0
+volumes:
+    vendor:

@@ -1,0 +1,13 @@
+FROM aceville/php-fpm:7.4
+
+
+# Copy Site Code
+COPY --chown=apache:apache ./ .
+
+# Create Caches & Apply folder permissions
+RUN mkdir -p system/user/cache && \
+    chmod 666 system/user/config/config.php && \
+    chmod -R 777 system/user/cache
+
+# Temporary - Setup a blank .env for phpdotenv PHP Library
+RUN touch .env
