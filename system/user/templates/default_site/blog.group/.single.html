@@ -4,8 +4,9 @@
     {if no_results}
         {redirect="404"} 
     {/if}
+    {layout:set name="title" value="{title}"}
     <div class="full-width content">
-        <div class="content-wrapper">
+        <div class="content-wrapper page-content">
             <section class="blog-content-container">
                 {blog_body_copy}
             </section>
