@@ -1,3 +1,4 @@
 .env
 /public_html/system/user/config/config.php
 /public_html/assets/images/
+.DS_Store

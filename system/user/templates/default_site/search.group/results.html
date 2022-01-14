@@ -1,0 +1,18 @@
+{layout="layouts/_page-wrapper"}
+{layout:set name="title" value="Search Results"}
+
+<div class="full-width content">
+    <div class="content-wrapper page-content">
+        {exp:search:search_results}
+            <div class="entry">
+                <h2><a href="/blog/{url_title}">{title}</a></h2>
+                <p><b>on:</b> {entry_date format='%n/%j/%Y'}, <b>by:</b> {author}</p>
+            </div>
+
+            {paginate}
+                <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+            {/paginate}
+
+        {/exp:search:search_results}
+    </div>
+</div>

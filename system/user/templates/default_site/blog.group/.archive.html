@@ -5,7 +5,7 @@
     <div class="content-wrapper page-content">
         {exp:channel:entries dynamic="no" channel='Blog' orderby="date" sort="desc" limit='4' paginate="bottom"  }
             <div class="entry">
-                <h2><a href="/index.php/blog/{url_title}">{title}</a></h2>
+                <h2><a href="/blog/{url_title}">{title}</a></h2>
                 <p><b>on:</b> {entry_date format='%n/%j/%Y'}, <b>by:</b> {author}</p>
             </div>
             {paginate}
