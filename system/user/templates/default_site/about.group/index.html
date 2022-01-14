@@ -8,7 +8,15 @@
         <div class="content-wrapper page-content">
             <!-- Content goes here -->
             {page_copy}
-            
+
+            <h2>FAQs</h2>
+            {faqs}
+                <div>
+                    <h3>{faqs:question}</h3>
+                    <p>{faqs:answer}</p>
+                </div>
+                {faqs:answer}
+            {/faqs}
         </div>
     </div>
 {/exp:channel:entries}
