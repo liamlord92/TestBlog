@@ -13,6 +13,10 @@
                 <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
             {/paginate}
 
+            {if no_results}
+                {embed="search/no-results"}
+            {/if}
+
         {/exp:search:search_results}
     </div>
 </div>
